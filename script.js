@@ -79,7 +79,9 @@ function generateRandomSSN() {
     const groupNumber = Math.floor(Math.random() * 99).toString().padStart(2, "0");
     const serialNumber = Math.floor(Math.random() * 9999).toString().padStart(4, "0");
 
-    return `${areaNumber}${groupNumber}${serialNumber}`;
+    document.getElementById("area-number").value = areaNumber;
+    document.getElementById("group-number").value = groupNumber;
+    document.getElementById("serial-number").value = serialNumber;
 }
 
 // Add event listener for random SSN generation
