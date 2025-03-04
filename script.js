@@ -2,9 +2,6 @@ JavaScript
 // script.js
 
 // Function to decode SSN
-function decodeSSN(ssn) {
-    // Remove dashes from SSN
-    ssn = ssn.replace(/-/g, "");
 
     // Extract area number, group number, and serial number
     const areaNumber = ssn.substring(0, 3);
