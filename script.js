@@ -72,21 +72,27 @@ function advancedEnglishGematria(number) {
 
 // Function to generate random SSN
 function generateRandomSSN() {
-    // Generate random area number, group number, and serial number
     const areaNumber = Math.floor(Math.random() * 1000).toString().padStart(3, "0");
     const groupNumber = Math.floor(Math.random() * 100).toString().padStart(2, "0");
-const serialNumber = Math.floor(Math.random() * 10000).toString().padStart(4, "0");
+    const serialNumber = Math.floor(Math.random() * 10000).toString().padStart(4, "0");
 
-return `${areaNumber}-${groupNumber}-${serialNumber}`;
+    document.getElementById("area-number").value = areaNumber;
+    document.getElementById("group-number").value = groupNumber;
+    document.getElementById("serial-number").value = serialNumber;
 }
+
+// Add event listener for random SSN generation
+document.getElementById("random-ssn-btn").addEventListener("click", generateRandomSSN);
+
 // Add event listener for form submission
 document.getElementById("decode-btn").addEventListener("click", (e) => {
-e.preventDefault();
-const ssn = document.getElementById("ssn").value;
-const decodedSSN = decodeSSN(ssn);
-const jewishGematriaValue = jewishGematria(decodedSSN.areaNumber);
-const simpleEnglishGematriaValue = simpleEnglishGematria(decodedSSN.groupNumber);
-const advancedEnglishGematriaValue = advancedEnglishGematria(decodedSSN.serialNumber);
+    e.preventDefault();
+    const areaNumber = document.getElementById("area-number").value;
+    const groupNumber = document.getElementById("group-number").value;
+    const serialNumber = document.getElementById("serial-number").value;
+
+    // TO DO: Implement SSN decoding and Gematria calculations
+});
 
 // Display results
 document.getElementById("results").innerHTML = `
