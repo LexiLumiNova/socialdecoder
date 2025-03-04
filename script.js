@@ -1,8 +1,14 @@
+1 reference
+Here are the fixes for the issues identified in your script.js file:
+
+Complete the decodeSSN function definition:
+Define the undefined variables:
+Ensure generateRandomSSN returns a value:
 JavaScript
 // script.js
 
 // Function to decode SSN
-
+function decodeSSN(ssn) {
     // Extract area number, group number, and serial number
     const areaNumber = ssn.substring(0, 3);
     const groupNumber = ssn.substring(3, 5);
@@ -73,13 +79,16 @@ function generateRandomSSN() {
     const groupNumber = Math.floor(Math.random() * 99).toString().padStart(2, "0");
     const serialNumber = Math.floor(Math.random() * 9999).toString().padStart(4, "0");
 
-    document.getElementById("area-number").value = areaNumber;
-    document.getElementById("group-number").value = groupNumber;
-    document.getElementById("serial-number").value = serialNumber;
+    return `${areaNumber}${groupNumber}${serialNumber}`;
 }
 
 // Add event listener for random SSN generation
-document.getElementById("random-ssn-btn").addEventListener("click", generateRandomSSN);
+document.getElementById("random-ssn-btn").addEventListener("click", () => {
+    const randomSSN = generateRandomSSN();
+    document.getElementById("area-number").value = randomSSN.substring(0, 3);
+    document.getElementById("group-number").value = randomSSN.substring(3, 5);
+    document.getElementById("serial-number").value = randomSSN.substring(5, 9);
+});
 
 // Add event listener for form submission
 document.getElementById("decode-btn").addEventListener("click", (e) => {
@@ -87,26 +96,23 @@ document.getElementById("decode-btn").addEventListener("click", (e) => {
     const areaNumber = document.getElementById("area-number").value;
     const groupNumber = document.getElementById("group-number").value;
     const serialNumber = document.getElementById("serial-number").value;
+    const ssn = `${areaNumber}${groupNumber}${serialNumber}`;
 
-    // TO DO: Implement SSN decoding and Gematria calculations
-});
+    const decodedSSN = decodeSSN(ssn);
+    const jewishGematriaValue = jewishGematria(ssn);
+    const simpleEnglishGematriaValue = simpleEnglishGematria(ssn);
+    const advancedEnglishGematriaValue = advancedEnglishGematria(ssn);
 
-// Display results
-document.getElementById("results").innerHTML = `
-<h2>Decoded SSN:</h2>
-<p>Area Number: ${decodedSSN.areaNumber}</p>
-<p>Group Number: ??</p>
-<p>Serial Number: ????</p>
+    // Display results
+    document.getElementById("results").innerHTML = `
+    <h2>Decoded SSN:</h2>
+    <p>Area Number: ${decodedSSN.areaNumber}</p>
+    <p>Group Number: ${decodedSSN.groupNumber}</p>
+    <p>Serial Number: ${decodedSSN.serialNumber}</p>
 
-<h2>Gematria Values:</h2>
-<p>Jewish Gematria: ${jewishGematriaValue}</p>
-<p>Simple English Gematria: ${simpleEnglishGematriaValue}</p>
-<p>Advanced English Gematria: ${advancedEnglishGematriaValue}</p>
-`;
-});
-
-// Add event listener for random SSN generation
-document.getElementById("random-ssn-btn").addEventListener("click", () => {
-const randomSSN = generateRandomSSN();
-document.getElementById("ssn").value = randomSSN;
+    <h2>Gematria Values:</h2>
+    <p>Jewish Gematria: ${jewishGematriaValue}</p>
+    <p>Simple English Gematria: ${simpleEnglishGematriaValue}</p>
+    <p>Advanced English Gematria: ${advancedEnglishGematriaValue}</p>
+    `;
 });
