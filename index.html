@@ -9,12 +9,20 @@ HTML
 </head>
 <body>
     <h1>Social Security Number Decoder</h1>
-    <form>
-        <label for="ssn">Enter Social Security Number:</label>
-        <input type="text" id="ssn" name="ssn" pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}">
-        <button id="decode-btn">Decode</button>
-        <button id="random-ssn-btn">Generate Random SSN</button>
-    </form>
+    HTML
+<form>
+    <label for="area-number">Area Number (XXX):</label>
+    <input type="text" id="area-number" name="area-number" maxlength="3" size="3">
+
+    <label for="group-number">Group Number (XX):</label>
+    <input type="text" id="group-number" name="group-number" maxlength="2" size="2">
+
+    <label for="serial-number">Serial Number (XXXX):</label>
+    <input type="text" id="serial-number" name="serial-number" maxlength="4" size="4">
+
+    <button id="decode-btn">Decode</button>
+    <button id="random-ssn-btn">Generate Random SSN</button>
+</form>
     <div id="results"></div>
     <canvas id="chart"></canvas>
 
