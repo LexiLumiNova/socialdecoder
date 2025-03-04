@@ -72,9 +72,9 @@ function advancedEnglishGematria(number) {
 
 // Function to generate random SSN
 function generateRandomSSN() {
-    const areaNumber = Math.floor(Math.random() * 1000).toString().padStart(3, "0");
-    const groupNumber = Math.floor(Math.random() * 100).toString().padStart(2, "0");
-    const serialNumber = Math.floor(Math.random() * 10000).toString().padStart(4, "0");
+    const areaNumber = Math.floor(Math.random() * 999).toString().padStart(3, "0");
+    const groupNumber = Math.floor(Math.random() * 99).toString().padStart(2, "0");
+    const serialNumber = Math.floor(Math.random() * 9999).toString().padStart(4, "0");
 
     document.getElementById("area-number").value = areaNumber;
     document.getElementById("group-number").value = groupNumber;
