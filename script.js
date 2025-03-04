@@ -1,10 +1,4 @@
-1 reference
-Here are the fixes for the issues identified in your script.js file:
 
-Complete the decodeSSN function definition:
-Define the undefined variables:
-Ensure generateRandomSSN returns a value:
-JavaScript
 // script.js
 
 // Function to decode SSN
