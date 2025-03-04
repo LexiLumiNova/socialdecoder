@@ -79,12 +79,7 @@ function generateRandomSSN() {
 }
 
 // Add event listener for random SSN generation
-document.getElementById("random-ssn-btn").addEventListener("click", () => {
-    const randomSSN = generateRandomSSN();
-    document.getElementById("area-number").value = randomSSN.substring(0, 3);
-    document.getElementById("group-number").value = randomSSN.substring(3, 5);
-    document.getElementById("serial-number").value = randomSSN.substring(5, 9);
-});
+document.getElementById("random-ssn-btn").addEventListener("click", generateRandomSSN);
 
 // Add event listener for form submission
 document.getElementById("decode-btn").addEventListener("click", (e) => {
